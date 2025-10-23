@@ -1,27 +1,27 @@
 import { Connection, PublicKey } from "@solana/web3.js";
 import config from "../config.json" with { type: "json" };
-import { decodeRaydiumPoolState } from "../decoders/decodeRaydiumPoolState.js";
+import { decodeDammV2Pool } from "../decoders/meteoraDAMMv2Decoder";
 
 
 const connection = new Connection(config.rpc, "processed");
-const RAYDIUM_POOL = new PublicKey(config.raydiumClmm.lpAccount);
+const DAMMV2_POOL = new PublicKey(config.dammv2.lpAccount);
 
 /**
  * Subscribe to a Raydium CLMM pool and stream decoded updates.
  * @param onUpdate - callback to receive the decoded pool object each time data changes
  */
-export function subscribeRaydiumCLMM(onUpdate: (decoded: any) => void) {
+export function subscribeMeteoraDAMMv2(onUpdate: (decoded: any) => void) {
   console.log("🔗 Subscribing to Raydium CLMM pool...");
 
   const subscriptionId = connection.onAccountChange(
-    RAYDIUM_POOL,
+    DAMMV2_POOL,
     (accountInfo, ctx) => {
       try {
         if (!accountInfo?.data) return;
 
-        const decoded = decodeRaydiumPoolState(accountInfo.data);
+        const decoded = decodeDammV2Pool(accountInfo.data);
         const update = {
-          source: "RAYDIUMCLMM",
+          source: "DAMMV2",
           slot: ctx.slot,
           timestamp: Date.now(),
           ...decoded,
@@ -42,7 +42,7 @@ export function subscribeRaydiumCLMM(onUpdate: (decoded: any) => void) {
 /**
  * Optional helper to unsubscribe later if needed
  */
-export async function unsubscribeRaydiumCLMM(id: number) {
+export async function unsubscribeMeteoraDAMMv2(id: number) {
   await connection.removeAccountChangeListener(id);
-  console.log("🛑 Unsubscribed from Raydium CLMM");
+  console.log("🛑 Unsubscribed from Meteora DAMMv2");
 }
