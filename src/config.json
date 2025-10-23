@@ -1,0 +1,36 @@
+{
+  "rpc": "https://mainnet.helius-rpc.com/?api-key=dbdb0729-5f20-4dbf-8d28-0efc2ce158a8",
+  "commitment": "processed",
+
+   "user":{
+    "pubkey" : "faggotRRmBjc7RSttfgG8H7DfdX6dpSYGQ3P6x34PcA"
+  }, 
+
+  "pfamm": {
+    "programId" : "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA",
+    "lpAddress" : "Gf7sXMoP8iRw4iiXmJ1nq4vxcRycbGXy5RL8a8LnTd3v",
+    "baseVault": "EjHirXt2bQd2DDNveagHHCWYzUwtY1iwNbBrV5j84e6j",
+    "quoteVault": "nML7msD1MiJHxFvhv4po1u6C4KpWr64ugKqc75DMuD2", 
+    "baseDecimals": 9,
+    "quoteDecimals": 6
+  },
+
+  "dammv2": {
+    "programId" : "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG",
+    "lpAccount": "8Pm2kZpnxD3hoMmt4bjStX2Pw2Z9abpbHzZxMPqxPmie",
+    "baseDecimals": 9,
+    "quoteDecimals": 6
+  },
+
+  "orca": {
+    "lpAccount": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE",
+    "baseDecimals": 9,
+    "quoteDecimals": 6
+  },
+
+  "raydiumClmm": {
+    "lpAccount": "3ucNos4NbumPLZNWztqGHNFFgkHeRMBQAVemeeomsUxv",
+    "baseDecimals": 9,
+    "quoteDecimals": 6
+  }
+}
